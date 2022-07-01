@@ -2,4 +2,4 @@
 
 import startProgression from '../src/games/progression.js';
 
-const lite = () => startProgression();
+startProgression();

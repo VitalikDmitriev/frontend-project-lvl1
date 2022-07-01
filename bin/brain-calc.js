@@ -2,4 +2,4 @@
 
 import startCalc from '../src/games/calc.js';
 
-const stCc = () => startCalc();
+startCalc();

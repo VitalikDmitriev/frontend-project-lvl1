@@ -2,4 +2,4 @@
 
 import startPrime from '../src/games/prime.js';
 
-const startPm = () => startPrime();
+startPrime();

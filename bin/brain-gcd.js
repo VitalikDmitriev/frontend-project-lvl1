@@ -2,4 +2,4 @@
 
 import startgcd from '../src/games/gcd.js';
 
-const stGCD = () => startgcd();
+startgcd();

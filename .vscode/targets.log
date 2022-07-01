@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Fri Jul  1 15:36:29 2022
+# Make data base, printed on Fri Jul  1 22:45:44 2022
 
 # Variables
 
@@ -41,7 +38,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sh/q4fdkmqj22x3mhzd5xcy4k9h0000gn/T/vscode-ipc-1f88a724-0b99-441c-94c4-536b4d005b95.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sh/q4fdkmqj22x3mhzd5xcy4k9h0000gn/T/vscode-ipc-4b29f141-54be-4285-8fda-69f8a445d6ae.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -66,7 +63,6 @@ PWD = /Users/dmitrievvitalij/frontend-project-lvl1
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
- 
 # environment
 HOME = /Users/dmitrievvitalij
 # default
@@ -76,7 +72,7 @@ VSCODE_CODE_CACHE_PATH = /Users/dmitrievvitalij/Library/Application Support/Code
 # environment
 LOGNAME = dmitrievvitalij
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -223,7 +219,6 @@ brain-calc:
 #  File has not been updated.
 
 brain-even:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -276,6 +271,8 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Jul  1 15:36:29 2022
+# Finished Make data base on Fri Jul  1 22:45:44 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+
