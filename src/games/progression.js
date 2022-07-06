@@ -1,30 +1,34 @@
-import startGameEngine from '../index.js';
-import randomNumberGenerator from '../random.js';
+import generateRandomNumber from '../utils.js';
+import runGameEngine from '../gameEngine.js';
 
-const gameDescription = 'What number is missing in the progression?';
+const rule = 'What number is missing in the progression?';
 
-const calculateProgression = () => {
-  const progression = [];
-  const progressionSize = randomNumberGenerator(5, 10);
-  const progressionStep = randomNumberGenerator(1, 5);
-  let progressionElement = 0;
+const PROGRESSION_LENGTH_MIN = 5;
 
-  for (let i = 0; i < progressionSize; i += 1) {
-    progressionElement += progressionStep;
-    progression.push(progressionElement);
+const generateQuestion = (start, length, diff, hiddenIndex) => {
+  const items = [];
+  for (let i = 0; i < length; i += 1) {
+    if (i === hiddenIndex) {
+      items.push('..');
+    } else {
+      items.push(start + i * diff);
+    }
   }
-  return progression;
+  return items.join(' ');
 };
 
-const prepareGameData = () => {
-  const progression = calculateProgression();
-  const hiddenNumber = randomNumberGenerator(1, progression.length - 2);
-  const rightAnswer = String(progression[hiddenNumber]);
-  progression[hiddenNumber] = '..';
-  const question = progression.join(' ');
-  return [question, rightAnswer];
+const generateRound = () => {
+  const start = generateRandomNumber();
+  const length = generateRandomNumber(PROGRESSION_LENGTH_MIN, 10);
+  const diff = generateRandomNumber(1, 10);
+  const hiddenIndex = generateRandomNumber(0, length - 1);
+
+  const question = generateQuestion(start, length, diff, hiddenIndex);
+  const answer = start + hiddenIndex * diff;
+
+  return [question, String(answer)];
 };
 
-const startProgression = startGameEngine(gameDescription, prepareGameData);
-
-export default startProgression;
+export default () => {
+  runGameEngine(rule, generateRound);
+};

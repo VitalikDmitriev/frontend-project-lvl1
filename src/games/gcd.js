@@ -1,24 +1,21 @@
-import randomNumberGenerator from '../random.js';
-import startGameEngine from '../index.js';
+import generateRandomNumber from '../utils.js';
+import runGameEngine from '../gameEngine.js';
 
-const gameDescription = 'Find the greatest common divisor of given numbers.';
+const rule = 'Find the greatest common divisor of given numbers.';
 
-const NODing = (fistnumber, secondnumber) => {
-  if (secondnumber === 0) {
-    return fistnumber;
+const getGcd = (a, b) => {
+  if (b === 0) {
+    return a;
   }
-  if (secondnumber > fistnumber) {
-    return NODing(secondnumber, fistnumber);
-  }
-  return NODing(secondnumber, fistnumber % secondnumber);
-};
-const prepareGameData = () => {
-  const fistnumber = randomNumberGenerator(0, 100);
-  const secondnumber = randomNumberGenerator(0, 100);
-  const question = `${fistnumber} ${secondnumber}`;
-  const rightAnswer = `${NODing(fistnumber, secondnumber)}`;
-  return [question, rightAnswer];
+  return getGcd(b, a % b);
 };
 
-const startgcd = startGameEngine(gameDescription, prepareGameData);
-export default startgcd;
+const generateRound = () => {
+  const a = generateRandomNumber(1, 100);
+  const b = generateRandomNumber(1, 100);
+  return [`${a} ${b}`, String(getGcd(a, b))];
+};
+
+export default () => {
+  runGameEngine(rule, generateRound);
+};

@@ -1,23 +1,26 @@
-import startGameEngine from '../index.js';
-import randomNumberGenerator from '../random.js';
+import generateRandomNumber from '../utils.js';
+import runGameEngine from '../gameEngine.js';
 
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (number) => {
-  for (let i = 2, max = Math.sqrt(number); i <= max; i += 1) {
-    if (number % i === 0) {
+const isPrime = (n) => {
+  if (n === 1) {
+    return false;
+  }
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
       return false;
     }
   }
-  return number > 1;
+  return true;
 };
 
-const prepareGameData = () => {
-  const randomNumber = randomNumberGenerator(1, 100);
-  const rightAnswer = isPrime(randomNumber) ? 'yes' : 'no';
-  return [randomNumber, rightAnswer];
+const generateRound = () => {
+  const number = generateRandomNumber(1, 100);
+  const answer = isPrime(number) ? 'yes' : 'no';
+  return [String(number), answer];
 };
 
-const startPrime = startGameEngine(gameDescription, prepareGameData);
-
-export default startPrime;
+export default () => {
+  runGameEngine(rule, generateRound);
+};

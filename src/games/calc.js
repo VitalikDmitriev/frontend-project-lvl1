@@ -1,30 +1,34 @@
-import randomNumberGenerator from '../random.js';
-import startGameEngine from '../index.js';
+import generateRandomNumber from '../utils.js';
+import runGameEngine from '../gameEngine.js';
 
-const gameDescription = 'What is the result of the expression?';
-const operators = ['+', '-', '*'];
-const calculate = (fistnumber, operator, secondnumber) => {
+const rule = 'What is the result of the expression?';
+
+const OPERATIONS = ['+', '-', '*'];
+
+const getRandomListItem = (items) => items[Math.floor(Math.random() * items.length)];
+
+const generateRound = () => {
+  const a = generateRandomNumber();
+  const b = generateRandomNumber();
+  const operator = getRandomListItem(OPERATIONS);
+
+  let answer;
   switch (operator) {
     case '+':
-      return fistnumber + secondnumber;
+      answer = a + b;
+      break;
     case '-':
-      return fistnumber - secondnumber;
+      answer = a - b;
+      break;
     case '*':
-      return fistnumber * secondnumber;
-    default:
-      throw new Error(`Unknown operator: '${operator}'!`);
+      answer = a * b;
+      break;
+    // no default
   }
+
+  return [`${a} ${operator} ${b}`, String(answer)];
 };
 
-const prepareGameData = () => {
-  const fistnumber = randomNumberGenerator(0, 10);
-  const secondnumber = randomNumberGenerator(0, 10);
-  const randomOperator = operators[randomNumberGenerator(0, operators.length - 1)];
-  const question = `${fistnumber} ${randomOperator} ${secondnumber}`;
-  const rightAnswer = String(calculate(fistnumber, randomOperator, secondnumber));
-  return [question, rightAnswer];
+export default () => {
+  runGameEngine(rule, generateRound);
 };
-
-const startCalc = startGameEngine(gameDescription, prepareGameData);
-
-export default startCalc;
