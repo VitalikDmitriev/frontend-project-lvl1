@@ -2,8 +2,6 @@
 [![Actions Status](https://github.com/VitalikDmitriev/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/VitalikDmitriev/frontend-project-lvl1/actions)
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/8746c74f66d0ddeb3ac0/maintainability)](https://codeclimate.com/github/DemX86/frontend-project-lvl1/maintainability)
-
 ## About
 Here we have five games to practice your brain:
 * _Calc_ — train your arithmetic skills with add, subtract and multiply operations
